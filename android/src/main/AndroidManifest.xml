@@ -1,7 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="im.zoe.labs.flutter_notification_listener">
+    xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application>  <service android:name="im.zoe.labs.flutter_notification_listener.NotificationsHandlerService"
+        android:exported="false"> <intent-filter>
+        <action android:name="im.zoe.labs.flutter_notification_listener.ACTION_LISTEN_NOTIFICATIONS" />
+    </intent-filter>
+    </service>
+    </application>
 </manifest>
